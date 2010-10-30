@@ -233,6 +233,12 @@ augroup SkeletonAu
 augroup END
 
 " 新規作成時のエンコーディング指定 {{{1
-autocmd BufNewFile *.html setlocal fileencoding=utf-8
-autocmd BufNewFile *.py   setlocal fileencoding=utf-8
-autocmd BufNewFile *.xml  setlocal fileencoding=utf-8
+augroup vimrc
+  autocmd BufNewFile *.html setlocal fileencoding=utf-8
+  autocmd BufNewFile *.py   setlocal fileencoding=utf-8
+  autocmd BufNewFile *.xml  setlocal fileencoding=utf-8
+augroup END
+
+" vimプラグインの管理(vim-pathogen) {{{1
+" link: http://www.vim.org/scripts/script.php?script_id=2332
+call pathogen#runtime_append_all_bundles()
