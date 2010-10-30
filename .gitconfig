@@ -1,0 +1,13 @@
+[user]
+	name = Yuji Kawamoto
+	email = yukawamoto@gmail.com
+[alias]
+	ci = commit
+	co = checkout
+	st = status
+[core]
+	editor = vim
+	pager = cat
+	excludesfile = ~/.gitignore
+[color]
+	diff = auto
