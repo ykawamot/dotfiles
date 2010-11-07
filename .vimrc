@@ -11,6 +11,7 @@ filetype indent on
 filetype plugin on
 set nocompatible
 "set mouse=a
+let mapleader = ","
 
 " タブ関連 {{{1
 set tabstop=4       " タブの表示幅を4文字にする
@@ -56,7 +57,7 @@ set scrolloff=5         " スクロール時の余白確保
 set showmode            " 現在のモードを表示
 set modeline            " モードラインを有効にする
 set shortmess+=I        " 起動時のメッセージを表示しない
-set textwidth=0         " 長い行でも改行しない
+set textwidth=0         " 長い行でも自動改行をしない
 " set display=uhex      " ^Cなどを<xx>の形式で16進数表示する
 set foldmethod=marker   " foldの種類を指定
 
@@ -242,3 +243,8 @@ augroup END
 " vimプラグインの管理(vim-pathogen) {{{1
 " Link: http://www.vim.org/scripts/script.php?script_id=2332
 call pathogen#runtime_append_all_bundles()
+
+" 検索ハイライト消去 {{{1
+" Link: http://d.hatena.ne.jp/yuroyoro/20101104/1288879591
+nnoremap <ESC><ESC> :nohlsearch<CR><ESC>
+
