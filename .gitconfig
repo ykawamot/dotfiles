@@ -11,3 +11,4 @@
 	excludesfile = ~/.gitignore
 [color]
 	diff = auto
+	ui = true
