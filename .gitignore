@@ -1,7 +1,9 @@
+*~
 *.gz
 *.la
 *.lo
 *.o
+*.package
 *.pyc
 *.swp
 *.tgz
