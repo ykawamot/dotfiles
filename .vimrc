@@ -1,88 +1,89 @@
 " ==================== Settings ==================== "
-" Define and reset augroup used in vimrc
+" Define and reset augroup used in vimrc {{{1
 augroup vimrc
   autocmd!
 augroup END
 
-" Á´ÈÌ·Ï {{{1
+" å…¨èˆ¬ç³» {{{1
 syntax on
 filetype on
 filetype indent on
 filetype plugin on
 set nocompatible
+set encoding=utf-8
 "set mouse=a
 let mapleader = ","
 
-" ¥¿¥Ö´ØÏ¢ {{{1
-set tabstop=4       " ¥¿¥Ö¤ÎÉ½¼¨Éı¤ò4Ê¸»ú¤Ë¤¹¤ë
-set shiftwidth=4    " cindent¤äautoindent»ş¤ËÁŞÆş¤µ¤ì¤ë¥¿¥Ö¤ÎÉı(tabstop ¤ÈÂ·¤¨¤Æ¤ª¤¯¤ÈÎÉ¤¤)
-set softtabstop=4   " tabstop¤òÊÑ¤¨¤º¤Ë¶õÇò¤Ë¤è¤Ã¤Æ¸«¤¿ÌÜ¤Îtabstop¤òÊÑ¤¨¤ë
-set expandtab       " ¥¿¥Ö¤ÎÂå¤ï¤ê¤ËÆ±¤¸Éı¤Î¶õÇò¤òÆş¤ì¤ë
-set smarttab        " ¹ÔÆ¬¤Ç¥¿¥Ö¤òÆşÎÏ¤¹¤ë¤Èshiftwidth¤¬ÍÑ¤¤¤é¤ì¤ë
+" ã‚¿ãƒ–é–¢é€£ {{{1
+set tabstop=4       " ã‚¿ãƒ–ã®è¡¨ç¤ºå¹…ã‚’4æ–‡å­—ã«ã™ã‚‹
+set shiftwidth=4    " cindentã‚„autoindentæ™‚ã«æŒ¿å…¥ã•ã‚Œã‚‹ã‚¿ãƒ–ã®å¹…(tabstop ã¨æƒãˆã¦ãŠãã¨è‰¯ã„)
+set softtabstop=4   " tabstopã‚’å¤‰ãˆãšã«ç©ºç™½ã«ã‚ˆã£ã¦è¦‹ãŸç›®ã®tabstopã‚’å¤‰ãˆã‚‹
+set expandtab       " ã‚¿ãƒ–ã®ä»£ã‚ã‚Šã«åŒã˜å¹…ã®ç©ºç™½ã‚’å…¥ã‚Œã‚‹
+set smarttab        " è¡Œé ­ã§ã‚¿ãƒ–ã‚’å…¥åŠ›ã™ã‚‹ã¨shiftwidthãŒç”¨ã„ã‚‰ã‚Œã‚‹
 
-" ¥Õ¥¡¥¤¥ë {{{1
-set autoread    " Â¾¤Ç½ñ¤­´¹¤¨¤é¤ì¤¿¤é¼«Æ°¤ÇÆÉ¤ßÄ¾¤¹
-set noswapfile  " ¥¹¥ï¥Ã¥×¥Õ¥¡¥¤¥ëºî¤é¤Ê¤¤
-set hidden      " ÊÔ½¸Ãæ¤Ç¤âÂ¾¤Î¥Õ¥¡¥¤¥ë¤ò³«¤±¤ë¤è¤¦¤Ë¤¹¤ë
+" ãƒ•ã‚¡ã‚¤ãƒ« {{{1
+set autoread    " ä»–ã§æ›¸ãæ›ãˆã‚‰ã‚ŒãŸã‚‰è‡ªå‹•ã§èª­ã¿ç›´ã™
+set noswapfile  " ã‚¹ãƒ¯ãƒƒãƒ—ãƒ•ã‚¡ã‚¤ãƒ«ä½œã‚‰ãªã„
+set hidden      " ç·¨é›†ä¸­ã§ã‚‚ä»–ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã‚‹ã‚ˆã†ã«ã™ã‚‹
 
-" ÆşÎÏÊä½õ {{{1
+" å…¥åŠ›è£œåŠ© {{{1
 set autoindent
 set nosmartindent
-set backspace=indent,eol,start  " ¥Ğ¥Ã¥¯¥¹¥Ú¡¼¥¹¤Ç¾Ã¤»¤ë¤è¤¦¤Ë
-set formatoptions-=or   " ¥³¥á¥ó¥È¹Ô¤Ç²ş¹Ô¤·¤Æ¤â¼«Æ°Åª¤Ë¥³¥á¥ó¥Èµ­¹æ¤ò¤Ä¤±¤Ê¤¤
-set formatoptions+=mM   " ÆüËÜ¸ì¹Ô¤òÏ¢·ë¤¹¤ëºİ¤Ë¶õÇò¤òÁŞÆş¤·¤Ê¤¤
+set backspace=indent,eol,start  " ãƒãƒƒã‚¯ã‚¹ãƒšãƒ¼ã‚¹ã§æ¶ˆã›ã‚‹ã‚ˆã†ã«
+set formatoptions-=or   " ã‚³ãƒ¡ãƒ³ãƒˆè¡Œã§æ”¹è¡Œã—ã¦ã‚‚è‡ªå‹•çš„ã«ã‚³ãƒ¡ãƒ³ãƒˆè¨˜å·ã‚’ã¤ã‘ãªã„
+set formatoptions+=mM   " æ—¥æœ¬èªè¡Œã‚’é€£çµã™ã‚‹éš›ã«ç©ºç™½ã‚’æŒ¿å…¥ã—ãªã„
 
-" ¸¡º÷ {{{1
-set ignorecase  " ÂçÊ¸»ú¾®Ê¸»ú¤ò¶èÊÌ¤·¤Ê¤¤
-set smartcase   " ÂçÊ¸»ú¤¬´Ş¤Ş¤ì¤Æ¤¤¤ë¾ì¹ç¤Ï¶èÊÌ¤·¤Æ¸¡º÷¤¹¤ë
-set wrapscan    " ºÇ¸å¤Ş¤Ç¸¡º÷¤·¤¿¤éÀèÆ¬¤ØÌá¤ë
-set hlsearch    " ¸¡º÷Ê¸»úÎó¤ò¥Ï¥¤¥é¥¤¥È
-set incsearch   " ¥¤¥ó¥¯¥ê¥á¥ó¥¿¥ë¥µ¡¼¥Á
+" æ¤œç´¢ {{{1
+set ignorecase  " å¤§æ–‡å­—å°æ–‡å­—ã‚’åŒºåˆ¥ã—ãªã„
+set smartcase   " å¤§æ–‡å­—ãŒå«ã¾ã‚Œã¦ã„ã‚‹å ´åˆã¯åŒºåˆ¥ã—ã¦æ¤œç´¢ã™ã‚‹
+set wrapscan    " æœ€å¾Œã¾ã§æ¤œç´¢ã—ãŸã‚‰å…ˆé ­ã¸æˆ»ã‚‹
+set hlsearch    " æ¤œç´¢æ–‡å­—åˆ—ã‚’ãƒã‚¤ãƒ©ã‚¤ãƒˆ
+set incsearch   " ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ã‚¿ãƒ«ã‚µãƒ¼ãƒ
 
-" ¥¹¥Æ¡¼¥¿¥¹¥é¥¤¥ó {{{1
-set laststatus=2    " ¥¹¥Æ¡¼¥¿¥¹¥é¥¤¥ó¤ò¾ï¤ËÉ½¼¨
+" ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒ©ã‚¤ãƒ³ {{{1
+set laststatus=2    " ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒ©ã‚¤ãƒ³ã‚’å¸¸ã«è¡¨ç¤º
 set statusline=%<%f\ %m%r%h%w%y
 set statusline+=%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}
 set statusline+=%=%l/%L,%v%8P
 
-" É½¼¨·Ï {{{1
-set number              " ¹ÔÈÖ¹æÉ½¼¨
-set showmatch           " ÂĞ±ş¤¹¤ë³ç¸Ì¤òÉ½¼¨
-set matchtime=2         " ÂĞ±ş¤¹¤ë³ç¸Ì¤ÎÉ½¼¨»ş´Ö(½é´üÃÍ5)
-set showcmd             " ÆşÎÏÃæ¤Î¥³¥Ş¥ó¥É¤òÉ½¼¨
-set list                " ¥¿¥Ö¤ä²ş¹ÔÊ¸»ú¤òÉ½¼¨¤¹¤ë
-set listchars=tab:\ \   " ¥¿¥Ö¤Îº¸Ã¼¤Ë¥«¡¼¥½¥ë¤òÉ½¼¨¤¹¤ë
-set listchars+=trail:\  " ¹ÔËö¤ÎÈ¾³Ñ¥¹¥Ú¡¼¥¹¤òÉ½¼¨¤¹¤ë
-set scrolloff=5         " ¥¹¥¯¥í¡¼¥ë»ş¤ÎÍ¾Çò³ÎÊİ
-set showmode            " ¸½ºß¤Î¥â¡¼¥É¤òÉ½¼¨
-set modeline            " ¥â¡¼¥É¥é¥¤¥ó¤òÍ­¸ú¤Ë¤¹¤ë
-set shortmess+=I        " µ¯Æ°»ş¤Î¥á¥Ã¥»¡¼¥¸¤òÉ½¼¨¤·¤Ê¤¤
-set textwidth=0         " Ä¹¤¤¹Ô¤Ç¤â¼«Æ°²ş¹Ô¤ò¤·¤Ê¤¤
-" set display=uhex      " ^C¤Ê¤É¤ò<xx>¤Î·Á¼°¤Ç16¿Ê¿ôÉ½¼¨¤¹¤ë
-set foldmethod=marker   " fold¤Î¼ïÎà¤ò»ØÄê
+" è¡¨ç¤ºç³» {{{1
+set number              " è¡Œç•ªå·è¡¨ç¤º
+set showmatch           " å¯¾å¿œã™ã‚‹æ‹¬å¼§ã‚’è¡¨ç¤º
+set matchtime=2         " å¯¾å¿œã™ã‚‹æ‹¬å¼§ã®è¡¨ç¤ºæ™‚é–“(åˆæœŸå€¤5)
+set showcmd             " å…¥åŠ›ä¸­ã®ã‚³ãƒãƒ³ãƒ‰ã‚’è¡¨ç¤º
+set list                " ã‚¿ãƒ–ã‚„æ”¹è¡Œæ–‡å­—ã‚’è¡¨ç¤ºã™ã‚‹
+set listchars=tab:\ \   " ã‚¿ãƒ–ã®å·¦ç«¯ã«ã‚«ãƒ¼ã‚½ãƒ«ã‚’è¡¨ç¤ºã™ã‚‹
+set listchars+=trail:\  " è¡Œæœ«ã®åŠè§’ã‚¹ãƒšãƒ¼ã‚¹ã‚’è¡¨ç¤ºã™ã‚‹
+set scrolloff=5         " ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«æ™‚ã®ä½™ç™½ç¢ºä¿
+set showmode            " ç¾åœ¨ã®ãƒ¢ãƒ¼ãƒ‰ã‚’è¡¨ç¤º
+set modeline            " ãƒ¢ãƒ¼ãƒ‰ãƒ©ã‚¤ãƒ³ã‚’æœ‰åŠ¹ã«ã™ã‚‹
+set shortmess+=I        " èµ·å‹•æ™‚ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¡¨ç¤ºã—ãªã„
+set textwidth=0         " é•·ã„è¡Œã§ã‚‚è‡ªå‹•æ”¹è¡Œã‚’ã—ãªã„
+" set display=uhex      " ^Cãªã©ã‚’<xx>ã®å½¢å¼ã§16é€²æ•°è¡¨ç¤ºã™ã‚‹
+set foldmethod=marker   " foldã®ç¨®é¡ã‚’æŒ‡å®š
 
-" ¤½¤ÎÂ¾ÀßÄê {{{1
-set nrformats-=octal            " 8¿Ê¿ô¤òÌµ¸ú¤Ë¤¹¤ë (C-a, C-x¤Ê¤É¤Ë±Æ¶Á¤¹¤ë)
-set fileformat=unix             " ²ş¹Ô¥³¡¼¥É¤Î»ØÄê
-set fileformats=unix,dos,mac    " ²ş¹Ô¥³¡¼¥É¤Î¼«Æ°Ç§¼±
-set wildmenu                    " Êä´°¸õÊä¤òÉ½¼¨¤¹¤ë
-set wildmode=list:longest       " Á´¤Æ¤Î¸õÊä¤òÍåÎó¤·¡¢¶¦ÄÌ¤¹¤ëºÇÄ¹¤ÎÊ¸»úÎó¤Ş¤ÇÊä´°¤¹¤ë
-set wildignore=*.o,*.so         " Êä´°¸õÊä¤«¤é½ü³°¤¹¤ë¥Õ¥¡¥¤¥ë
+" ãã®ä»–è¨­å®š {{{1
+set nrformats-=octal            " 8é€²æ•°ã‚’ç„¡åŠ¹ã«ã™ã‚‹ (C-a, C-xãªã©ã«å½±éŸ¿ã™ã‚‹)
+set fileformat=unix             " æ”¹è¡Œã‚³ãƒ¼ãƒ‰ã®æŒ‡å®š
+set fileformats=unix,dos,mac    " æ”¹è¡Œã‚³ãƒ¼ãƒ‰ã®è‡ªå‹•èªè­˜
+set wildmenu                    " è£œå®Œå€™è£œã‚’è¡¨ç¤ºã™ã‚‹
+set wildmode=list:longest       " å…¨ã¦ã®å€™è£œã‚’ç¾…åˆ—ã—ã€å…±é€šã™ã‚‹æœ€é•·ã®æ–‡å­—åˆ—ã¾ã§è£œå®Œã™ã‚‹
+set wildignore=*.o,*.so         " è£œå®Œå€™è£œã‹ã‚‰é™¤å¤–ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«
 
-" ¿§¤ÎÀßÄê {{{1
-"set background=dark    " ¥¿¡¼¥ß¥Ê¥ë¤ÎÇØ·Ê¿§¤ò»ØÄê(¤Ş¤¿¤Ïlight)
+" è‰²ã®è¨­å®š {{{1
+"set background=dark    " ã‚¿ãƒ¼ãƒŸãƒŠãƒ«ã®èƒŒæ™¯è‰²ã‚’æŒ‡å®š(ã¾ãŸã¯light)
 highlight LineNr     ctermfg=darkyellow
 highlight NonText    ctermfg=darkgrey
 highlight Folded     ctermfg=blue
 highlight SpecialKey cterm=underline ctermfg=darkgrey
 
-" Á´³Ñ¥¹¥Ú¡¼¥¹¤òÉ½¼¨ {{{2
+" å…¨è§’ã‚¹ãƒšãƒ¼ã‚¹ã‚’è¡¨ç¤º {{{2
 " Link: http://sites.google.com/site/fudist/Home/vim-nihongo-ban/vim-color
 function! ZenkakuSpace()
-  " ZenkakuSpace¤ò¥«¥é¡¼¥Õ¥¡¥¤¥ë¤ÇÀßÄê¤¹¤ë¤Ê¤é¼¡¤Î¹Ô¤Ïºï½ü
+  " ZenkakuSpaceã‚’ã‚«ãƒ©ãƒ¼ãƒ•ã‚¡ã‚¤ãƒ«ã§è¨­å®šã™ã‚‹ãªã‚‰æ¬¡ã®è¡Œã¯å‰Šé™¤
   highlight ZenkakuSpace cterm=underline ctermfg=lightblue
-  "Á´³Ñ¥¹¥Ú¡¼¥¹¤òÌÀ¼¨Åª¤ËÉ½¼¨¤¹¤ë¡£
-  silent! match ZenkakuSpace /¡¡/
+  "å…¨è§’ã‚¹ãƒšãƒ¼ã‚¹ã‚’æ˜ç¤ºçš„ã«è¡¨ç¤ºã™ã‚‹ã€‚
+  silent! match ZenkakuSpace /ã€€/
 endfunction
 
 if has('syntax')
@@ -92,8 +93,8 @@ if has('syntax')
   augroup END
 endif
 
-" ¥­¡¼¥Ş¥Ã¥Ô¥ó¥° {{{1
-" ÀŞ¤êÊÖ¤·¹Ô¤Ç¤â²èÌÌ¤Î¤È¤ª¤ê¤Ë°ÜÆ°¤¹¤ë
+" ã‚­ãƒ¼ãƒãƒƒãƒ”ãƒ³ã‚° {{{1
+" æŠ˜ã‚Šè¿”ã—è¡Œã§ã‚‚ç”»é¢ã®ã¨ãŠã‚Šã«ç§»å‹•ã™ã‚‹
 nnoremap j gj
 nnoremap k gk
 nnoremap * g*
@@ -101,15 +102,15 @@ nnoremap <Down> gj
 nnoremap <Up>   gk
 nnoremap n nzz
 nnoremap N Nzz
-" <Tab>¤Ç²èÌÌÀÚ¤êÂØ¤¨¤Ç¤­¤è¤¦¤Ë¤¹¤ë
+" <Tab>ã§ç”»é¢åˆ‡ã‚Šæ›¿ãˆã§ãã‚ˆã†ã«ã™ã‚‹
 nnoremap <Tab> <C-w>w
-" ÆüÉÕ¤ÎÆşÎÏÊä´°
+" æ—¥ä»˜ã®å…¥åŠ›è£œå®Œ
 inoremap <expr> ,df strftime('%Y-%m-%d %H:%M:%S')
 inoremap <expr> ,dd strftime('%Y-%m-%d')
 inoremap <expr> ,dt strftime('%H:%M:%S')
-" vimrc¤òÂ¨ºÂ¤Ë³«¤¯
+" vimrcã‚’å³åº§ã«é–‹ã
 nnoremap <Space>. :<C-u>edit $MYVIMRC<CR>
-" yw¤Ç¤½¤Î¥«¡¼¥½¥ë°ÌÃÖ¤Ë¤¢¤ëÃ±¸ì¤ò¥ì¥¸¥¹¥¿¤ËÄÉ²Ã
+" ywã§ãã®ã‚«ãƒ¼ã‚½ãƒ«ä½ç½®ã«ã‚ã‚‹å˜èªã‚’ãƒ¬ã‚¸ã‚¹ã‚¿ã«è¿½åŠ 
 nnoremap yw :let @"=expand('<cword>')<CR>
 
 " String convert to Numeric Character Reference 
@@ -117,7 +118,7 @@ nnoremap yw :let @"=expand('<cword>')<CR>
 vnoremap <silent> sn :Str2NumChar<CR>
 vnoremap <silent> sh :Str2HexLiteral<CR>
 
-" html ¥¨¥¹¥±¡¼¥× {{{2
+" html ã‚¨ã‚¹ã‚±ãƒ¼ãƒ— {{{2
 " Link: http://liosk.blog103.fc2.com/blog-entry-187.html
 vnoremap <Leader>e "xx:call <SID>EscapeXml('x')<CR>"xP
 
@@ -131,7 +132,7 @@ function! s:EscapeXml(regname)
   call setreg(a:regname, x)
 endfunction
 
-" quickfix¤ò¼«Æ°¤Ç³«¤¯ {{{1
+" quickfixã‚’è‡ªå‹•ã§é–‹ã {{{1
 " http://webtech-walker.com/archive/2009/09/29213156.html
 augroup vimrc
   autocmd QuickfixCmdPost make,grep,grepadd,vimgrep 
@@ -157,9 +158,9 @@ if has("autocmd") && exists("+omnifunc")
   augroup END
 endif
 
-" ¼­½ñ¥Ä¡¼¥ë»ØÄê {{{1
+" è¾æ›¸ãƒ„ãƒ¼ãƒ«æŒ‡å®š {{{1
 augroup vimrc
-  set complete+=k     " ¼­½ñ¥Õ¥¡¥¤¥ë¤«¤é¤ÎÃ±¸ìÊä´Ö
+  set complete+=k     " è¾æ›¸ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ã®å˜èªè£œé–“
   autocmd FileType c      set dictionary+=$VIMRUNTIME/syntax/c.vim
   autocmd FileType cpp    set dictionary+=$VIMRUNTIME/syntax/cpp.vim
   autocmd FileType html   set dictionary+=$VIMRUNTIME/syntax/html.vim
@@ -170,7 +171,7 @@ augroup vimrc
   autocmd FileType vim    set dictionary+=$VIMRUNTIME/syntax/vim.vim
 augroup END
 
-" shebang ÉÕ¥Õ¥¡¥¤¥ëÊİÂ¸»ş¤Ë¼Â¹Ô¸¢¸Â¤òÉÕ²Ã {{{1
+" shebang ä»˜ãƒ•ã‚¡ã‚¤ãƒ«ä¿å­˜æ™‚ã«å®Ÿè¡Œæ¨©é™ã‚’ä»˜åŠ  {{{1
 " Link: http://d.hatena.ne.jp/spiritloose/20060519/1147970872
 augroup vimrc
   autocmd BufWritePost * :call AddExecmod()
@@ -189,12 +190,12 @@ endfunction
 " http://nanasi.jp/articles/vim/qbuf_vim.html
 let g:qb_hotkey="<F4>"
 
-" grep ¤Ç ack ¤ò»È¤¦ {{{1
+" grep ã§ ack ã‚’ä½¿ã† {{{1
 " http://blog.blueblack.net/item_160
 " http://d.hatena.ne.jp/secondlife/20080311/1205205348
 set grepprg=ack\ -a
 
-" XML¤ÎÊÄ¤¸¥¿¥°¤òÊä´°¤¹¤ë {{{1
+" XMLã®é–‰ã˜ã‚¿ã‚°ã‚’è£œå®Œã™ã‚‹ {{{1
 " http://vim-users.jp/2009/06/hack22/
 augroup XMLCompletion
   autocmd!
@@ -212,12 +213,12 @@ let php_sql_query = 1
 let python_highlight_all = 1
 let ruby_fold = 1
 
-" .vimrc ÊİÂ¸»ş¤ËºÆÆÉ¤ß¹ş¤ß {{{1
+" .vimrc ä¿å­˜æ™‚ã«å†èª­ã¿è¾¼ã¿ {{{1
 augroup vimrc
   autocmd BufWritePost $HOME/.vimrc source $HOME/.vimrc
 augroup END
 
-" Á°²ó½ªÎ»¤·¤¿¥«¡¼¥½¥ë¹Ô¤Ë°ÜÆ° {{{1
+" å‰å›çµ‚äº†ã—ãŸã‚«ãƒ¼ã‚½ãƒ«è¡Œã«ç§»å‹• {{{1
 augroup vimrc
   autocmd BufReadPost *
   \ if line("'\"") > 0 && line("'\"") <= line("$") |
@@ -225,7 +226,7 @@ augroup vimrc
   \ endif
 augroup END
 
-" ¥Æ¥ó¥×¥ì¡¼¥È¥Õ¥¡¥¤¥ë {{{1
+" ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆãƒ•ã‚¡ã‚¤ãƒ« {{{1
 augroup SkeletonAu
   autocmd!
   autocmd BufNewFile *.html 0r $HOME/.vim/templates/skel.html
@@ -233,19 +234,19 @@ augroup SkeletonAu
   "autocmd BufNewFile *.xml  0r $HOME/.vim/templates/skel.xml
 augroup END
 
-" ¿·µ¬ºîÀ®»ş¤Î¥¨¥ó¥³¡¼¥Ç¥£¥ó¥°»ØÄê {{{1
+" æ–°è¦ä½œæˆæ™‚ã®ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°æŒ‡å®š {{{1
 augroup vimrc
   autocmd BufNewFile *.html setlocal fileencoding=utf-8
   autocmd BufNewFile *.py   setlocal fileencoding=utf-8
   autocmd BufNewFile *.xml  setlocal fileencoding=utf-8
 augroup END
 
-" vim¥×¥é¥°¥¤¥ó¤Î´ÉÍı(vim-pathogen) {{{1
+" vimãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã®ç®¡ç†(vim-pathogen) {{{1
 " Link: http://www.vim.org/scripts/script.php?script_id=2332
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
-" ¸¡º÷¥Ï¥¤¥é¥¤¥È¾Ãµî {{{1
+" æ¤œç´¢ãƒã‚¤ãƒ©ã‚¤ãƒˆæ¶ˆå» {{{1
 " Link: http://d.hatena.ne.jp/yuroyoro/20101104/1288879591
 nnoremap <ESC><ESC> :nohlsearch<CR><ESC>
 
