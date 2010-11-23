@@ -1,0 +1,22 @@
+# Begin ~/.bashrc.d/20-function/ww
+
+ww() {
+  case $OSNAME in
+    FreeBSD | Darwin)
+      local cols=`stty -a | head -1 | sed 's/.*rows; \([0-9]*\) columns;/\1/'`;;
+    Linux)
+      local cols=`stty -a | head -1 | sed 's/.*columns \([0-9]*\);.*/\1/'`;;
+    *)
+      w; return;;
+  esac
+
+  stty cols ${1:-132}
+  w
+  stty cols $cols
+}
+
+www() {
+  ww 8192
+}
+
+# End ~/.bashrc.d/20-function/ww
