@@ -1,0 +1,22 @@
+# Begin ~/.bashrc.d/20-alias
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+alias :q='exit'
+
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+
+case $OSNAME in
+  FreeBSD | Darwin)
+    alias psx='ps axo "user,pid,ppid,%cpu,%mem,tt,state,start,command"' ;;
+  Linux)
+    alias psx='ps axo "user,pid,ppid,%cpu,%mem,tt,state,stime,command"' ;;
+  *)
+    ;;
+esac
+
+# End ~/.bashrc.d/20-alias
