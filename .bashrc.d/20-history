@@ -1,0 +1,27 @@
+# Begin ~/.bashrc.d/20-history
+
+# History file name
+export HISTFILE=~/.bash_history
+
+# History length
+export HISTSIZE=2048
+export HISTFILESIZE=2048
+
+# Ignore duplicate lines and begin with whitespace
+export HISTCONTROL='ignoreboth'
+
+# Prevent certain commands from cluttering the history
+export HISTIGNORE='&:l[ahlost]:[bf]g:cd:clear:exit:history:ps:psx:pwd'
+
+# Multi-line commands stored as a single command
+shopt -s cmdhist
+
+# Command history will be saved for all terminals
+# http://twitter.com/bashtips/status/2908837032
+shopt -s histappend
+export PROMPT_COMMAND='history -a'
+
+# Be able to edit the command before running it
+shopt -s histverify
+
+# End ~/.bashrc.d/20-history
