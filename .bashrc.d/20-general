@@ -1,0 +1,38 @@
+# Begin ~/.bashrc.d/20-general
+
+# Immediate background job termination notification
+set -b
+
+# Default directory permissions are 755 and
+# default file permissions are 644.
+umask 022
+
+# Do not produce core dumps
+ulimit -c 0
+
+unset LANG MAIL
+
+export EDITOR=vim
+export PAGER=less
+export MANPAGER=less
+
+export LESS='-fiR -x4 -P ?f%f:(stdin). ?lb%lb?L/%L.. [?eEOF:?pb%pb\%..]'
+export LESSCHARSET='utf-8'
+
+export FIGNORE='.git:.hg:.svn:CVS'
+export RSYNC_RSH=ssh
+
+# Allow assigning paths to cd-able variables
+shopt -s cdable_vars
+
+# Automatically correct mistyped directory names 
+shopt -s cdspell
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# Disable empty completion
+shopt -s no_empty_cmd_completion
+
+# End ~/.bashrc.d/20-general
