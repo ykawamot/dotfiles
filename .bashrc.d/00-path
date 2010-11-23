@@ -1,0 +1,25 @@
+# Begin ~/.bashrc.d/00-path
+
+if [ -d /usr/local ] ; then
+  pathappend /usr/local/bin
+  pathappend /usr/local/sbin
+  pathappend /usr/local/share/man MANPATH
+fi
+
+pathappend /usr/bin
+pathappend /usr/sbin
+pathappend /usr/share/man MANPATH
+
+pathappend /bin
+pathappend /sbin
+
+if [ -d /usr/X11 ] ; then
+  pathappend /usr/X11/bin
+  pathappend /usr/X11/share/man MANPATH
+fi
+
+if [ -d ~/bin ] ; then
+  pathappend ~/bin
+fi
+
+# End ~/.bashrc.d/00-path
