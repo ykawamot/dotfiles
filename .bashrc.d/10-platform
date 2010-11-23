@@ -1,0 +1,11 @@
+# Begin ~/.bashrc.d/10-platform
+
+export OSNAME=$(uname -s)
+export OSVER=$(uname -r)
+
+# Load OS specific configuration
+if [ -f ~/.bashrc.d/10-platform.d/$OSNAME ] ; then
+  . ~/.bashrc.d/10-platform.d/$OSNAME
+fi
+
+# End ~/.bashrc.d/10-platform
