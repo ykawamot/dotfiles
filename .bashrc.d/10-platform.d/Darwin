@@ -1,0 +1,21 @@
+# Begin ~/.bashrc.d/10-platform.d/Darwin
+
+[ $OSNAME = "Darwin" ] || return
+
+# Check if there is an /opt/local hierarchy 
+if [ -d /opt/local ] ; then
+  export OPTROOT=/opt/local
+  pathprepend $OPTROOT/sbin PATH
+  pathprepend $OPTROOT/bin  PATH
+  pathprepend $OPTROOT/man        MANPATH
+  pathprepend $OPTROOT/share/man  MANPATH
+  pathprepend $OPTROOT/share/info INFOPATH
+fi
+
+# Reapplied for homebrew
+if [ -f /usr/local/bin/brew ] ; then
+  pathprepend /usr/local/sbin PATH
+  pathprepend /usr/local/bin  PATH
+fi
+
+# End ~/.bashrc.d/10-platform.d/Darwin
