@@ -1,0 +1,17 @@
+# Begin ~/.bashrc.d/20-ssh-agent
+
+if [ -f ~/.ssh-agent.`hostname -s` ] ; then
+  . ~/.ssh-agent.`hostname -s`
+fi
+
+if ssh-add -l > /dev/null 2>&1; then
+  :
+elif [ $? = 2 ] ; then
+  ssh-agent -s > ~/.ssh-agent.`hostname -s`
+  . ~/.ssh-agent.`hostname -s`
+  ssh-add
+else
+  ssh-add
+fi
+
+# End ~/.bashrc.d/20-ssh-agent
