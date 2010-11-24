@@ -1,0 +1,9 @@
+# Begin ~/.bashrc.d/20-perl
+
+if [ -x /usr/local/bin/perl ] ; then
+ alias perl=/usr/local/bin/perl
+fi
+
+export PERL5OPT='-MCarp=verbose'
+
+# End ~/.bashrc.d/20-perl
