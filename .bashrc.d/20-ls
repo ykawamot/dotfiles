@@ -2,7 +2,7 @@
 
 case $OSNAME in
   FreeBSD | Darwin)
-    LS_OPTIONS="-FG" ;;
+    LS_OPTIONS="-wFG" ;;
   Linux)
     LS_OPTIONS="-vF --color=auto --show-control-chars" ;;
   *)
