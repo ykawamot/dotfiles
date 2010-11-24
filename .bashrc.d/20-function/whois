@@ -1,0 +1,11 @@
+# Begin ~/.bashrc.d/20-function/whois
+
+whois() {
+  if echo $1 | grep -i '\.jp$' >/dev/null 2>&1; then
+    env whois -h whois.jprs.jp "$@"
+  else
+    env whois "$@"
+  fi
+}
+
+# End ~/.bashrc.d/20-function/whois
