@@ -5,18 +5,18 @@
 export GREP_OPTIONS=
 
 # Ignore certain directory patterns
-if grep --help | grep -- --exclude-dir= &>/dev/null; then
+if grep --help | grep -- --exclude-dir= >/dev/null 2>&1; then
   export GREP_OPTIONS="--exclude-dir=.svn $GREP_OPTIONS"
   export GREP_OPTIONS="--exclude-dir=.git $GREP_OPTIONS"
   export GREP_OPTIONS="--exclude-dir=CVS $GREP_OPTIONS"
-elif grep --help | grep -- --exclude= &>/dev/null; then
+elif grep --help | grep -- --exclude= >/dev/null 2>&1; then
   export GREP_OPTIONS="--exclude=\*.svn\* $GREP_OPTIONS"
   export GREP_OPTIONS="--exclude=\*.git\* $GREP_OPTIONS"
   # would like to exclude CVS here, but it's too generic without slashes
 fi
 
 # Turn on grep colorization
-if echo hello | grep --color=auto l &>/dev/null 2>&1; then
+if echo hello | grep --color=auto l >/dev/null 2>&1; then
   export GREP_OPTIONS="--color=auto $GREP_OPTIONS"
   export GREP_COLOR="1;32"
 fi
