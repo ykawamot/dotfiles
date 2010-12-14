@@ -1,0 +1,14 @@
+# Begin ~/.bashrc.d/20-function/localtime
+
+localtime() {
+  case $OSNAME in
+    FreeBSD | Darwin)
+      date -r $1 ;;
+    Linux)
+      date -d@$1 ;;
+    *)
+      perl -le 'print scalar localtime shift' $1 ;;
+  esac
+}
+
+# End ~/.bashrc.d/20-function/localtime
