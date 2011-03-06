@@ -58,7 +58,7 @@ run_scripts() { # {{{
 run_scripts ~/.bashrc.d
 
 # load local settings
-[ -f ~/.bashrc_local ] && . ~/.bashrc_local
+[ -f ~/.bashrc.local ] && . ~/.bashrc.local
 
 # Now to clean up
 unset pathremove pathprepend pathappend
