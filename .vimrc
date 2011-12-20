@@ -272,3 +272,9 @@ endif
 " Link: http://d.hatena.ne.jp/ykmbpp/20091128/1259411850
 inoremap <Leader>path <C-R>=expand('%:p')<CR>
 
+" 括弧までを消したり置き換えたりする{{{1
+" Link: http://vim-users.jp/2011/04/hack214/
+onoremap ) t)
+onoremap ( t(
+vnoremap ) t)
+vnoremap ( t(
