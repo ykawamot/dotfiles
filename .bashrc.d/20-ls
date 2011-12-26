@@ -23,8 +23,8 @@ case $OSNAME in
   FreeBSD | Darwin)
     export LSCOLORS=gxfxcxdxbxegedabagacad ;;
   Linux)
-    if [ -f ~/.dircolors ] ; then
-      eval $(dircolors -b ~/.dircolors)
+    if [ -f ~/.dir_colors ] ; then
+      eval $(dircolors -b ~/.dir_colors)
     fi
     ;;
   *)
