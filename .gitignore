@@ -1,4 +1,4 @@
-*~
+T*~
 *.gz
 *.la
 *.lo
@@ -9,3 +9,5 @@
 *.tgz
 *.zip
 .DS_Store
+.svn
+CVS
