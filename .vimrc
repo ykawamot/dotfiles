@@ -72,9 +72,10 @@ set wildignore=*.o,*.so         " 補完候補から除外するファイル
 
 " 色の設定 {{{1
 "set background=dark    " ターミナルの背景色を指定(またはlight)
-highlight LineNr     ctermfg=darkyellow
+highlight Comment    ctermfg=lightblue
+highlight Directory  ctermfg=lightblue
+highlight Folded     ctermfg=lightblue
 highlight NonText    ctermfg=darkgrey
-highlight Folded     ctermfg=blue
 highlight SpecialKey cterm=underline ctermfg=darkgrey
 
 " 全角スペースを表示 {{{2
@@ -112,6 +113,8 @@ inoremap <expr> ,dt strftime('%H:%M:%S')
 nnoremap <Space>. :<C-u>edit $MYVIMRC<CR>
 " ywでそのカーソル位置にある単語をレジスタに追加
 nnoremap yw :let @"=expand('<cword>')<CR>
+" 行を連結したときのスペースを除去
+nnoremap J Jx
 
 " String convert to Numeric Character Reference 
 " Link: http://www.vim.org/scripts/script.php?script_id=1646
