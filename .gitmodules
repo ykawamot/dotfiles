@@ -13,3 +13,6 @@
 [submodule ".vim/bundle/eregex.vim"]
 	path = .vim/bundle/eregex.vim
 	url = git://github.com/othree/eregex.vim.git
+[submodule ".vim/bundle/str2numchar.vim"]
+	path = .vim/bundle/str2numchar.vim
+	url = git://github.com/vim-scripts/str2numchar.vim.git
