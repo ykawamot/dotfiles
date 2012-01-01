@@ -61,6 +61,7 @@ set shortmess+=I        " 起動時のメッセージを表示しない
 set textwidth=0         " 長い行でも自動改行をしない
 " set display=uhex      " ^Cなどを<xx>の形式で16進数表示する
 set foldmethod=marker   " foldの種類を指定
+set fillchars=vert:\|   " fold時にハイフンで埋めない
 
 " その他設定 {{{1
 set nrformats-=octal            " 8進数を無効にする (C-a, C-xなどに影響する)
