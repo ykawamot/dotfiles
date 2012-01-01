@@ -256,8 +256,8 @@ nnoremap <ESC><ESC> :nohlsearch<CR><ESC>
 " クリップボードからの貼り付け時に自動インデントを無効にする {{{1
 " Link: http://ttssh2.sourceforge.jp/manual/ja/usage/tips/vim.html#Bracketed
 if &term =~ "xterm"
-  let &t_ti .= "\e[?2004h"
-  let &t_te .= "\e[?2004l"
+  let &t_SI .= "\e[?2004h"
+  let &t_EI .= "\e[?2004l"
   let &pastetoggle = "\e[201~"
 
   function! XTermPasteBegin(ret)
@@ -265,11 +265,14 @@ if &term =~ "xterm"
     return a:ret
   endfunction
 
-  noremap  <special> <expr> <Esc>[200~ XTermPasteBegin("0i")
   inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
-  cnoremap <special> <Esc>[200~ <nop>
-  cnoremap <special> <Esc>[201~ <nop>
 endif
+
+" 挿入モードでの ESC キーを押した後の待ちを無くす "{{{1
+" Link: http://ttssh2.sourceforge.jp/manual/ja/usage/tips/vim.html#AppESC
+let &t_SI .= "\e[?7727h"
+let &t_EI .= "\e[?7727l"
+inoremap <special> <Esc>O[ <Esc>
 
 " 現在のファイルのフルパスを挿入する {{{1
 " Link: http://d.hatena.ne.jp/ykmbpp/20091128/1259411850
@@ -281,3 +284,11 @@ onoremap ) t)
 onoremap ( t(
 vnoremap ) t)
 vnoremap ( t(
+
+" eregex.vim 用キーマッピング "{{{1
+" Link: https://github.com/othree/eregex.vim
+nnoremap / :M/
+nnoremap ? :M?
+nnoremap ,/ /
+nnoremap ,? ?
+
