@@ -14,8 +14,8 @@ alias ls="ls $LS_OPTIONS"
 alias la="ls -a $LS_OPTIONS"
 alias ll="ls -al $LS_OPTIONS"
 alias lo="ls -ao $LS_OPTIONS"
-alias lt="ls -alrt $LS_OPTIONS"
-alias lh="ls -ahlrS $LS_OPTIONS"
+alias lt="ls -alr $LS_OPTIONS -t"
+alias lh="ls -ahlr $LS_OPTIONS -S"
 
 unset LS_OPTIONS
 
