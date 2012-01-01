@@ -1,0 +1,4 @@
+## .bash_completion
+[ -d ~/.bash_completion.d ] \
+  && declare -f run_scripts > /dev/null \
+  && run_scripts ~/.bash_completion.d
