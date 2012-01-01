@@ -11,4 +11,5 @@
 .DS_Store
 .svn
 CVS
-tags*
+tags
+tags-ja
