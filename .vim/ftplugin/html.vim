@@ -17,6 +17,7 @@ inoremap ,img <img src="" alt="" /><Esc>10hi
 inoremap ,div   <div><CR><CR></div><Esc>5hki
 inoremap ,p     <p><CR><CR></p><Esc>3hki
 inoremap ,pre   <pre><CR><CR></pre><Esc>5hki
+inoremap ,span  <span><CR><CR></span><Esc>6hki
 inoremap ,table <table><CR><CR></table><Esc>7hki
 inoremap ,th    <th></th><Esc>4hi
 inoremap ,tr    <tr></tr><Esc>4hi
