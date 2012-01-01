@@ -4,6 +4,7 @@ use warnings;
 use Cwd;
 
 my @files = qw(
+    .bash_completion
     .bash_profile
     .bashrc
     .bashrc.d
