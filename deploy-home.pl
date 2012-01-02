@@ -5,6 +5,7 @@ use Cwd;
 
 my @files = qw(
     .bash_completion
+    .bash_completion.d
     .bash_profile
     .bashrc
     .bashrc.d
