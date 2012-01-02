@@ -293,3 +293,8 @@ nnoremap ? :M?
 nnoremap ,/ /
 nnoremap ,? ?
 
+" color and highlight test "{{{1
+" Link: http://d.hatena.ne.jp/connvoi_tyou/20080306
+cnoremap ct source $VIMRUNTIME/syntax/colortest.vim
+cnoremap ht source $VIMRUNTIME/syntax/hitest.vim
+
