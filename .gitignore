@@ -5,6 +5,7 @@
 *.o
 *.package
 *.pyc
+*.so
 *.swp
 *.tgz
 *.zip
