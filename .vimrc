@@ -70,6 +70,8 @@ set fileformats=unix,dos,mac    " 改行コードの自動認識
 set wildmenu                    " 補完候補を表示する
 set wildmode=list:longest       " 全ての候補を羅列し、共通する最長の文字列まで補完する
 set wildignore=*.o,*.so         " 補完候補から除外するファイル
+set wildignore+=*/.hg/*,*/.svn/*,*/CVS/*
+"set wildignore+=*/.git/*       " If you ignore .git, vim-fugitive will not work.
 
 " 色の設定 {{{1
 "set background=dark    " ターミナルの背景色を指定(またはlight)
