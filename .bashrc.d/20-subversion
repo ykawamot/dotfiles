@@ -1,0 +1,4 @@
+## .bashrc.d/20-subversion
+
+export SVN_EDITOR=vim
+export SVN_SSH=ssh
