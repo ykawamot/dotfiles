@@ -1,15 +1,31 @@
-" ==================== Settings ==================== "
-" Define and reset augroup used in vimrc {{{1
-augroup vimrc
-  autocmd!
+set nocompatible
+filetype off
+filetype plugin indent off
+
+" NeoBundle周りを自動化する
+" Link: http://qiita.com/td2sk/items/2299a5518f58ffbfc5cf
+if has('vim_starting')
+  " NeoBundleが未取得なら、git clone を呼び出す
+  if !isdirectory(expand("~/.vim/bundle/neobundle.vim/"))
+    echo "install neobundle..."
+    call system("git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim")
+  endif
+  set runtimepath+=~/.vim/bundle/neobundle.vim
+endif
+
+call neobundle#rc(expand('~/.vim/bundle/'))
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+augroup MyAutoCmd
+   autocmd!
 augroup END
+
+runtime! include/*.vim
+
+filetype plugin indent on
 
 " 全般系 {{{1
 syntax on
-filetype on
-filetype indent on
-filetype plugin on
-set nocompatible
 set encoding=utf-8
 "set mouse=a
 let mapleader = ","
@@ -39,12 +55,6 @@ set smartcase   " 大文字が含まれている場合は区別して検索す�
 set wrapscan    " 最後まで検索したら先頭へ戻る
 set hlsearch    " 検索文字列をハイライト
 set incsearch   " インクリメンタルサーチ
-
-" ステータスライン {{{1
-set laststatus=2    " ステータスラインを常に表示
-set statusline=%<%f\ %m%r%h%w%y
-set statusline+=%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}
-set statusline+=%=%l/%L,%v%8P
 
 " 表示系 {{{1
 set number              " 行番号表示
@@ -112,8 +122,6 @@ nnoremap <Tab> <C-w>w
 inoremap <expr> ,df strftime('%Y-%m-%d %H:%M:%S')
 inoremap <expr> ,dd strftime('%Y-%m-%d')
 inoremap <expr> ,dt strftime('%H:%M:%S')
-" vimrcを即座に開く
-nnoremap <Space>. :<C-u>edit $MYVIMRC<CR>
 " ywでそのカーソル位置にある単語をレジスタに追加
 nnoremap yw :let @"=expand('<cword>')<CR>
 
@@ -138,7 +146,7 @@ endfunction
 
 " quickfixを自動で開く {{{1
 " http://webtech-walker.com/archive/2009/09/29213156.html
-augroup vimrc
+augroup MyAutoCmd
   autocmd QuickfixCmdPost make,grep,grepadd,vimgrep call OpenModifiableQF()
 
   function! OpenModifiableQF()
@@ -170,7 +178,7 @@ if has("autocmd") && exists("+omnifunc")
 endif
 
 " 辞書ツール指定 {{{1
-augroup vimrc
+augroup MyAutoCmd
   set complete+=k     " 辞書ファイルからの単語補間
   autocmd FileType c      set dictionary+=$VIMRUNTIME/syntax/c.vim
   autocmd FileType cpp    set dictionary+=$VIMRUNTIME/syntax/cpp.vim
@@ -181,19 +189,6 @@ augroup vimrc
   autocmd FileType sql    set dictionary+=$VIMRUNTIME/syntax/sql.vim
   autocmd FileType vim    set dictionary+=$VIMRUNTIME/syntax/vim.vim
 augroup END
-
-" shebang 付ファイル保存時に実行権限を付加 {{{1
-" Link: http://d.hatena.ne.jp/spiritloose/20060519/1147970872
-augroup vimrc
-  autocmd BufWritePost * :call AddExecmod()
-augroup END
-
-function! AddExecmod()
-  let line = getline(1)
-  if strpart(line, 0, 2) == "#!"
-    call system("chmod +x ". expand("%"))
-  endif
-endfunction
 
 " QuickBuf {{{1
 " Very small, clean but quick and POWERFUL buffer manager!
@@ -224,13 +219,8 @@ let php_sql_query = 1
 let python_highlight_all = 1
 let ruby_fold = 1
 
-" .vimrc 保存時に再読み込み {{{1
-augroup vimrc
-  autocmd BufWritePost $HOME/.vimrc source $HOME/.vimrc
-augroup END
-
 " 前回終了したカーソル行に移動 {{{1
-augroup vimrc
+augroup MyAutoCmd
   autocmd BufReadPost *
   \ if line("'\"") > 0 && line("'\"") <= line("$") |
   \   execute "normal g`\"" |
@@ -246,16 +236,11 @@ augroup SkeletonAu
 augroup END
 
 " 新規作成時のエンコーディング指定 {{{1
-augroup vimrc
+augroup MyAutoCmd
   autocmd BufNewFile *.html setlocal fileencoding=utf-8
   autocmd BufNewFile *.py   setlocal fileencoding=utf-8
   autocmd BufNewFile *.xml  setlocal fileencoding=utf-8
 augroup END
-
-" vimプラグインの管理(vim-pathogen) {{{1
-" Link: http://www.vim.org/scripts/script.php?script_id=2332
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
 
 " 検索ハイライト消去 {{{1
 " Link: http://d.hatena.ne.jp/yuroyoro/20101104/1288879591
@@ -307,3 +292,15 @@ nnoremap ,? ?
 nnoremap <silent> :ct :source $VIMRUNTIME/syntax/colortest.vim<CR>
 nnoremap <silent> :ht :source $VIMRUNTIME/syntax/hitest.vim<CR>
 
+" 未取得の bundle があれば、起動時に取得
+" Link: http://qiita.com/td2sk/items/2299a5518f58ffbfc5cf
+if !empty(neobundle#get_not_installed_bundle_names())
+  echo 'Not installed bundles: '
+    \ string(neobundle#get_not_installed_bundle_names())
+  if confirm('Install bundles now?', "yes\nNo", 2) == 1
+    " vimrc を再度読み込み、インストールした Bundle を有効化
+    " vimrc は必ず再読み込み可能な形式で記述すること
+    NeoBundleInstall
+    source $MYVIMRC
+  endif
+end
