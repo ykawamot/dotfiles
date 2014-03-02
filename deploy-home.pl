@@ -9,6 +9,7 @@ my @files = qw(
     .bash_profile
     .bashrc
     .bashrc.d
+    .dir_colors
     .gitconfig
     .gitignore
     .vim
