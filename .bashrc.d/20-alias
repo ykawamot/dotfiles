@@ -13,6 +13,7 @@ alias rm='rm -i'
 
 alias :q='exit'
 alias diff='diff -bptuwBN'
+alias tmux='tmux -u'
 alias vi='vim'
 
 case $OSNAME in

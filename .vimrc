@@ -116,8 +116,6 @@ inoremap <expr> ,dt strftime('%H:%M:%S')
 nnoremap <Space>. :<C-u>edit $MYVIMRC<CR>
 " ywでそのカーソル位置にある単語をレジスタに追加
 nnoremap yw :let @"=expand('<cword>')<CR>
-" 行を連結したときのスペースを除去
-nnoremap J Jx
 
 " String convert to Numeric Character Reference 
 " Link: http://www.vim.org/scripts/script.php?script_id=1646
@@ -141,10 +139,17 @@ endfunction
 " quickfixを自動で開く {{{1
 " http://webtech-walker.com/archive/2009/09/29213156.html
 augroup vimrc
-  autocmd QuickfixCmdPost make,grep,grepadd,vimgrep 
-  \ if len(getqflist()) != 0 | 
-  \   copen | 
-  \ endif
+  autocmd QuickfixCmdPost make,grep,grepadd,vimgrep call OpenModifiableQF()
+
+  function! OpenModifiableQF()
+    if len(getqflist()) != 0
+      copen
+      " quickfix: 編集許可と折り返し表示無効
+      " Link: http://d.hatena.ne.jp/ryochack/20110609/1307639604
+      set modifiable
+      set nowrap
+    endif
+  endfunction
 augroup END
 
 " Syntax Complete {{{1
