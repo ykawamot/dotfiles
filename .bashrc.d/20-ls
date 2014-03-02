@@ -1,12 +1,23 @@
 # Begin ~/.bashrc.d/20-ls
 
-case $OSNAME in
-  FreeBSD | Darwin)
-    LS_OPTIONS="-wFG" ;;
-  Linux)
-    LS_OPTIONS="-vF --color=auto --show-control-chars" ;;
+ls --version 2> /dev/null | grep -q GNU
+
+case "$?" in
+  0)
+    # GNU ls
+    LS_OPTIONS="-vF --color=auto --show-control-chars"
+    if [ -f ~/.dir_colors ] ; then
+      eval $(dircolors -b ~/.dir_colors)
+    fi
+    ;;
+  1)
+    # FreeBSD ls
+    LS_OPTIONS="-wFG"
+    export LSCOLORS=gxfxcxdxbxegedabagacad
+    ;;
   *)
-    LS_OPTIONS= ;;
+    LS_OPTIONS=
+    ;;
 esac
 
 # Add some ls-related aliases
@@ -18,17 +29,5 @@ alias lt="ls -alr $LS_OPTIONS -t"
 alias lh="ls -ahlr $LS_OPTIONS -S"
 
 unset LS_OPTIONS
-
-case $OSNAME in
-  FreeBSD | Darwin)
-    export LSCOLORS=gxfxcxdxbxegedabagacad ;;
-  Linux)
-    if [ -f ~/.dir_colors ] ; then
-      eval $(dircolors -b ~/.dir_colors)
-    fi
-    ;;
-  *)
-    ;;
-esac
 
 # End ~/.bashrc.d/20-ls

@@ -1,13 +1,11 @@
 # Begin ~/.bashrc.d/20-function/ww
 
 ww() {
-  case $OSNAME in
-    FreeBSD | Darwin)
-      local cols=`stty -a | head -1 | sed 's/.*rows; \([0-9]*\) columns;/\1/'`;;
-    Linux)
-      local cols=`stty -a | head -1 | sed 's/.*columns \([0-9]*\);.*/\1/'`;;
-    *)
-      w; return;;
+  stty --version 2> /dev/null | grep -q GNU
+  case "$?" in
+    0) local cols=`stty -a | head -1 | sed 's/.*columns \([0-9]*\);.*/\1/'`     ;; # GNU
+    1) local cols=`stty -a | head -1 | sed 's/.*rows; \([0-9]*\) columns;/\1/'` ;; # FreeBSD
+    *) w; return ;;
   esac
 
   stty cols ${1:-132}

@@ -1,13 +1,11 @@
 # Begin ~/.bashrc.d/20-function/localtime
 
 localtime() {
-  case $OSNAME in
-    FreeBSD | Darwin)
-      date -r $1 ;;
-    Linux)
-      date -d@$1 ;;
-    *)
-      perl -le 'print scalar localtime shift' $1 ;;
+  date --version 2> /dev/null | grep -q GNU
+  case "$?" in
+    0) date -d@$1 ;; # GNU date
+    1) date -r $1 ;; # FreeBSD date
+    *) perl -le 'print scalar localtime shift' $1 ;;
   esac
 }
 
