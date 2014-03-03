@@ -9,9 +9,11 @@ my @files = qw(
     .bash_profile
     .bashrc
     .bashrc.d
+    .digrc
     .dir_colors
     .gitconfig
     .gitignore
+    .rspec
     .vim
     .vimrc
 );
