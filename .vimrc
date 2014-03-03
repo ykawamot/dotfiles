@@ -7,12 +7,13 @@ filetype plugin indent off
 if has('vim_starting')
   " NeoBundleが未取得なら、git clone を呼び出す
   if !isdirectory(expand("~/.vim/bundle/neobundle.vim/"))
-    echo "install neobundle..."
+    echo "Install neobundle..."
     call system("git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim")
   endif
   set runtimepath+=~/.vim/bundle/neobundle.vim
 endif
 
+let g:neobundle_default_git_protocol = 'git'
 call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
