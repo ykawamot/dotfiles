@@ -19,7 +19,7 @@ if [ -d /usr/X11 ] ; then
 fi
 
 # $ brew install coreutils
-if [ -n "$(which brew)" ] ; then
+if [ -n "$(which brew 2> /dev/null)" ] ; then
   GNU_PREFIX=$(brew --prefix coreutils 2> /dev/null)
   if [ -d "$GNU_PREFIX" ] ; then
     pathprepend $GNU_PREFIX/libexec/gnubin
