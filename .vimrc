@@ -18,7 +18,7 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 augroup MyAutoCmd
-   autocmd!
+  autocmd!
 augroup END
 
 runtime! include/*.vim
@@ -27,16 +27,8 @@ filetype plugin indent on
 
 " 全般系 {{{1
 syntax on
-set encoding=utf-8
 "set mouse=a
 let mapleader = ","
-
-" タブ関連 {{{1
-set tabstop=4       " タブの表示幅を4文字にする
-set shiftwidth=4    " cindentやautoindent時に挿入されるタブの幅(tabstop と揃えておくと良い)
-set softtabstop=4   " tabstopを変えずに空白によって見た目のtabstopを変える
-set expandtab       " タブの代わりに同じ幅の空白を入れる
-set smarttab        " 行頭でタブを入力するとshiftwidthが用いられる
 
 " ファイル {{{1
 set autoread    " 他で書き換えられたら自動で読み直す
@@ -44,8 +36,6 @@ set noswapfile  " スワップファイル作らない
 set hidden      " 編集中でも他のファイルを開けるようにする
 
 " 入力補助 {{{1
-set autoindent
-set nosmartindent
 set backspace=indent,eol,start  " バックスペースで消せるように
 set formatoptions-=or   " コメント行で改行しても自動的にコメント記号をつけない
 set formatoptions+=mM   " 日本語行を連結する際に空白を挿入しない
@@ -58,19 +48,8 @@ set hlsearch    " 検索文字列をハイライト
 set incsearch   " インクリメンタルサーチ
 
 " 表示系 {{{1
-set number              " 行番号表示
-set showmatch           " 対応する括弧を表示
-set matchtime=2         " 対応する括弧の表示時間(初期値5)
-set showcmd             " 入力中のコマンドを表示
-set list                " タブや改行文字を表示する
-set listchars=tab:\ \   " タブの左端にカーソルを表示する
-set listchars+=trail:\  " 行末の半角スペースを表示する
 set scrolloff=5         " スクロール時の余白確保
-set showmode            " 現在のモードを表示
 set modeline            " モードラインを有効にする
-set shortmess+=I        " 起動時のメッセージを表示しない
-set textwidth=0         " 長い行でも自動改行をしない
-" set display=uhex      " ^Cなどを<xx>の形式で16進数表示する
 set foldmethod=marker   " foldの種類を指定
 set fillchars=vert:\|   " fold時にハイフンで埋めない
 
@@ -92,33 +71,7 @@ highlight Folded     ctermfg=lightblue
 highlight NonText    ctermfg=darkgrey
 highlight SpecialKey cterm=underline ctermfg=darkgrey
 
-" 全角スペースを表示 {{{2
-" Link: http://sites.google.com/site/fudist/Home/vim-nihongo-ban/vim-color
-function! ZenkakuSpace()
-  " ZenkakuSpaceをカラーファイルで設定するなら次の行は削除
-  highlight ZenkakuSpace cterm=underline ctermfg=lightblue
-  "全角スペースを明示的に表示する。
-  silent! match ZenkakuSpace /　/
-endfunction
-
-if has('syntax')
-  augroup ZenkakuSpace
-    autocmd!
-    autocmd VimEnter,BufEnter * call ZenkakuSpace()
-  augroup END
-endif
-
 " キーマッピング {{{1
-" 折り返し行でも画面のとおりに移動する
-nnoremap j gj
-nnoremap k gk
-nnoremap * g*
-nnoremap <Down> gj
-nnoremap <Up>   gk
-nnoremap n nzz
-nnoremap N Nzz
-" <Tab>で画面切り替えできようにする
-nnoremap <Tab> <C-w>w
 " 日付の入力補完
 inoremap <expr> ,df strftime('%Y-%m-%d %H:%M:%S')
 inoremap <expr> ,dd strftime('%Y-%m-%d')
@@ -133,7 +86,7 @@ vnoremap <silent> sh :Str2HexLiteral<CR>
 
 " html エスケープ {{{2
 " Link: http://liosk.blog103.fc2.com/blog-entry-187.html
-vnoremap <Leader>e "xx:call <SID>EscapeXml('x')<CR>"xP
+vnoremap <silent> <Leader>e "xx:call <SID>EscapeXml('x')<CR>"xP
 
 function! s:EscapeXml(regname)
   let x = getreg(a:regname)
@@ -234,13 +187,6 @@ augroup SkeletonAu
   autocmd BufNewFile *.html 0r $HOME/.vim/templates/skel.html
   "autocmd BufNewFile *.pl   0r $HOME/.vim/templates/skel.pl
   "autocmd BufNewFile *.xml  0r $HOME/.vim/templates/skel.xml
-augroup END
-
-" 新規作成時のエンコーディング指定 {{{1
-augroup MyAutoCmd
-  autocmd BufNewFile *.html setlocal fileencoding=utf-8
-  autocmd BufNewFile *.py   setlocal fileencoding=utf-8
-  autocmd BufNewFile *.xml  setlocal fileencoding=utf-8
 augroup END
 
 " 検索ハイライト消去 {{{1
