@@ -9,4 +9,6 @@ augroup FileTypeDetect
   autocmd BufRead,BufNewFile *.cgi setfiletype perl
   autocmd BufRead,BufNewFile *.t   setfiletype perl
   autocmd BufRead,BufNewFile *.inc setfiletype php
+
+  autocmd BufRead,BufNewFile Gemfile setfiletype ruby
 augroup END
