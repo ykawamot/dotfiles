@@ -24,3 +24,19 @@ augroup SetTabStop
   autocmd FileType yaml       setlocal sw=2 sts=2 ts=2
 augroup END
 
+" Link: https://github.com/nathanaelkane/vim-indent-guides
+NeoBundle 'nathanaelkane/vim-indent-guides'
+" vim起動時にvim-indent-guidesをオンにする
+"let g:indent_guides_enable_on_vim_startup = 1
+" 自動カラーを無効にする
+let g:indent_guides_auto_colors = 0
+" ガイドの幅
+let g:indent_guides_guide_size = 1
+" ガイドをスタートするインデントの量
+let g:indent_guides_start_level = 2
+" インデントのガイドカラー
+hi IndentGuidesOdd  ctermbg=darkgray
+hi IndentGuidesEven ctermbg=darkgray
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=darkgray
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgray
+
