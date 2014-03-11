@@ -16,6 +16,18 @@ set list                " タブや改行文字を表示する
 set listchars=tab:\ \   " タブの左端にカーソルを表示する
 set listchars+=trail:\  " 行末の半角スペースを表示する
 
+" colorscheme
+NeoBundle 'tomasr/molokai'
+colorscheme molokai
+"let g:molokai_original = 1
+"let g:rehash256 = 1
+"set background=dark
+
+autocmd ColorScheme * highlight Normal ctermbg=none
+  \ " molokai.vimの背景色を消す
+  \ " See: http://fixture.jp/blog/2012/08/patch-to-disable-molokai-bgcolor/
+autocmd ColorScheme * highlight SpecialKey cterm=underline
+
 " 全角スペースを表示
 " Link: http://sites.google.com/site/fudist/Home/vim-nihongo-ban/vim-color
 if has('syntax')
