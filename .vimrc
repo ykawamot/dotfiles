@@ -63,14 +63,6 @@ set wildignore=*.o,*.so         " 補完候補から除外するファイル
 set wildignore+=*/.hg/*,*/.svn/*,*/CVS/*
 "set wildignore+=*/.git/*       " If you ignore .git, vim-fugitive will not work.
 
-" 色の設定 {{{1
-"set background=dark    " ターミナルの背景色を指定(またはlight)
-highlight Comment    ctermfg=lightblue
-highlight Directory  ctermfg=lightblue
-highlight Folded     ctermfg=lightblue
-highlight NonText    ctermfg=darkgrey
-highlight SpecialKey cterm=underline ctermfg=darkgrey
-
 " キーマッピング {{{1
 " 日付の入力補完
 inoremap <expr> ,df strftime('%Y-%m-%d %H:%M:%S')
