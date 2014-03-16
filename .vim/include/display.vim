@@ -18,6 +18,11 @@ set listchars+=trail:\  " 行末の半角スペースを表示する
 
 syntax on
 
+" syntax highlight
+let php_htmlInStrings = 1
+let php_sql_query = 1
+let python_highlight_all = 1
+
 " colorscheme
 NeoBundle 'tomasr/molokai'
 colorscheme molokai
