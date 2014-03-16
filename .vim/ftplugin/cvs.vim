@@ -1,1 +1,0 @@
-setlocal fileencoding=euc-jp
