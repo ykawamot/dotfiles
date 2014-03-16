@@ -1,4 +1,8 @@
-set nocompatible
+" init
+augroup MyAutoCmd
+  autocmd!
+augroup END
+
 filetype off
 filetype plugin indent off
 
@@ -17,16 +21,11 @@ let g:neobundle_default_git_protocol = 'git'
 call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-augroup MyAutoCmd
-  autocmd!
-augroup END
-
 runtime! include/*.vim
 
 filetype plugin indent on
 
 " 全般系 {{{1
-syntax on
 "set mouse=a
 let mapleader = ","
 
@@ -50,8 +49,6 @@ set incsearch   " インクリメンタルサーチ
 " 表示系 {{{1
 set scrolloff=5         " スクロール時の余白確保
 set modeline            " モードラインを有効にする
-set foldmethod=marker   " foldの種類を指定
-set fillchars=vert:\|   " fold時にハイフンで埋めない
 
 " その他設定 {{{1
 set nrformats-=octal            " 8進数を無効にする (C-a, C-xなどに影響する)
@@ -145,7 +142,9 @@ let g:qb_hotkey="<F4>"
 " grep で ack を使う {{{1
 " http://blog.blueblack.net/item_160
 " http://d.hatena.ne.jp/secondlife/20080311/1205205348
-set grepprg=ack\ -a
+if executable('ack')
+  set grepprg=ack\ -a
+endif
 
 " XMLの閉じタグを補完する {{{1
 " http://vim-users.jp/2009/06/hack22/
@@ -155,15 +154,6 @@ augroup XMLCompletion
   autocmd Filetype html  inoremap <buffer> </ </<C-x><C-o>
   autocmd Filetype xhtml inoremap <buffer> </ </<C-x><C-o>
 augroup END
-
-" Stntax highlight {{{1
-let perl_fold = 1
-"let perl_fold_blocks = 1
-"let php_folding=1
-let php_htmlInStrings = 1
-let php_sql_query = 1
-let python_highlight_all = 1
-let ruby_fold = 1
 
 " 前回終了したカーソル行に移動 {{{1
 augroup MyAutoCmd
