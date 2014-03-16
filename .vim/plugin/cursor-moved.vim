@@ -10,7 +10,7 @@ inoremap <C-f> <Right>
 inoremap <C-e> <End>
 inoremap <C-a> <Home>
 inoremap <C-d> <Del>
-inoremap <C-x> <Del>
+"inoremap <C-x> <Del>
 inoremap <C-h> <BS>
 inoremap <Up> <Up>
 inoremap <C-_> <ESC>ugi
