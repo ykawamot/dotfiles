@@ -2,6 +2,22 @@
 " キーマップ関連
 "
 
+" Link: http://ac-mopp.blogspot.jp/2014/02/vimrc.html
+"-----------------------------------------------------------------------------------"
+" Mappings                                                                          |
+"-----------------------------------------------------------------------------------"
+" コマンド        | ノーマル | 挿入 | コマンドライン | ビジュアル | 選択 | 演算待ち |
+" map  / noremap  |    @     |  -   |       -        |     @      |  @   |    @     |
+" nmap / nnoremap |    @     |  -   |       -        |     -      |  -   |    -     |
+" vmap / vnoremap |    -     |  -   |       -        |     @      |  @   |    -     |
+" omap / onoremap |    -     |  -   |       -        |     -      |  -   |    @     |
+" xmap / xnoremap |    -     |  -   |       -        |     @      |  -   |    -     |
+" smap / snoremap |    -     |  -   |       -        |     -      |  @   |    -     |
+" map! / noremap! |    -     |  @   |       @        |     -      |  -   |    -     |
+" imap / inoremap |    -     |  @   |       -        |     -      |  -   |    -     |
+" cmap / cnoremap |    -     |  -   |       @        |     -      |  -   |    -     |
+"-----------------------------------------------------------------------------------"
+
 " 折り返し行でも画面のとおりに移動する
 nnoremap j gj
 nnoremap k gk
@@ -37,3 +53,7 @@ cmap w!! w !sudo tee % > /dev/null
 " Yの動作をA,C,Dのようにする
 " Link: http://www.vimbits.com/bits/11
 map Y y$
+
+" ZZ,ZQでの保存・終了を無効
+nnoremap ZZ <Nop>
+nnoremap ZQ <Nop>
