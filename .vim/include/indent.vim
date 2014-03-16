@@ -3,7 +3,6 @@
 "
 
 set autoindent      " 改行時に前の行のインデントを継続する
-set smartindent     " 改行時に入力された行の末尾に合わせて次の行のインデントを増減する
 set cindent         " C言語スタイルのインデント
 
 set tabstop=4       " タブの表示幅
