@@ -1,6 +1,7 @@
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'othree/eregex.vim'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundle 'vim-scripts/EnhCommentify.vim'
 NeoBundle 'vim-scripts/str2numchar.vim'
 NeoBundle 'vim-scripts/sudo.vim'
