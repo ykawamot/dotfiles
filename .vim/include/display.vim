@@ -16,8 +16,6 @@ set list                " タブや改行文字を表示する
 set listchars=tab:\ \   " タブの左端にカーソルを表示する
 set listchars+=trail:\  " 行末の半角スペースを表示する
 
-syntax on
-
 " syntax highlight
 let php_htmlInStrings = 1
 let php_sql_query = 1
@@ -49,3 +47,5 @@ if has('syntax')
     autocmd VimEnter,BufEnter * call ZenkakuSpace()
   augroup END
 endif
+
+syntax on
