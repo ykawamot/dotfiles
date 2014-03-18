@@ -49,6 +49,7 @@ set incsearch   " インクリメンタルサーチ
 " 表示系 {{{1
 set scrolloff=5         " スクロール時の余白確保
 set modeline            " モードラインを有効にする
+set modelines=5
 
 " その他設定 {{{1
 set nrformats-=octal            " 8進数を無効にする (C-a, C-xなどに影響する)
