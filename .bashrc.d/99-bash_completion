@@ -1,11 +1,15 @@
 # Begin ~/.bashrc.d/99-bash_completion
 
-if [ -f /usr/local/etc/bash_completion ] ; then
-  . /usr/local/etc/bash_completion
-elif [ -f /opt/local/etc/bash_completion ] ; then
-  . /opt/local/etc/bash_completion
-elif [ -f /etc/bash_completion ] ; then
-  . /etc/bash_completion
-fi
+BASH_COMPLETION_ORDER=(
+    /usr/local/etc/bash_completion
+    /opt/local/etc/bash_completion
+    /etc/bash_completion
+    )
+
+for BASH_COMPLETION_CANDIDATE in ${BASH_COMPLETION_ORDER[@]} ; do
+    test -f $BASH_COMPLETION_CANDIDATE && . $BASH_COMPLETION_CANDIDATE && break
+done
+
+unset BASH_COMPLETION_ORDER BASH_COMPLETION_CANDIDATE
 
 # End ~/.bashrc.d/99-bash_completion
