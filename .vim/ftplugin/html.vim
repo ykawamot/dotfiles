@@ -1,7 +1,3 @@
-setlocal tabstop=2
-setlocal shiftwidth=2
-setlocal softtabstop=2
-
 inoremap ,h1 <h1></h1><Esc>4hi
 inoremap ,h2 <h2></h2><Esc>4hi
 inoremap ,h3 <h3></h3><Esc>4hi
@@ -13,7 +9,7 @@ inoremap ,br  <br /><CR><Esc>i
 inoremap ,hr  <hr /><CR><Esc>i
 inoremap ,a   <a href=""></a><Esc>5hi
 inoremap ,img <img src="" alt="" /><Esc>10hi
-
+ 
 inoremap ,div   <div><CR><CR></div><Esc>5hki
 inoremap ,p     <p><CR><CR></p><Esc>3hki
 inoremap ,pre   <pre><CR><CR></pre><Esc>5hki
@@ -23,7 +19,7 @@ inoremap ,th    <th></th><Esc>4hi
 inoremap ,tr    <tr></tr><Esc>4hi
 inoremap ,td    <td></td><Esc>4hi
 
-inoremap ,html 
+inoremap ,html
  \<!DOCTYPE HTML PUBLIC
  \ "-//W3C//DTD HTML 4.01//EN"
  \ "http://www.w3.org/TR/html4/strict.dtd"><CR>
