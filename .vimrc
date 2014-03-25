@@ -88,22 +88,6 @@ function! s:EscapeXml(regname)
   call setreg(a:regname, x)
 endfunction
 
-" quickfixを自動で開く {{{1
-" http://webtech-walker.com/archive/2009/09/29213156.html
-augroup MyAutoCmd
-  autocmd QuickfixCmdPost make,grep,grepadd,vimgrep call OpenModifiableQF()
-
-  function! OpenModifiableQF()
-    if len(getqflist()) != 0
-      copen
-      " quickfix: 編集許可と折り返し表示無効
-      " Link: http://d.hatena.ne.jp/ryochack/20110609/1307639604
-      set modifiable
-      set nowrap
-    endif
-  endfunction
-augroup END
-
 " Syntax Complete {{{1
 " Link: http://vim.wikia.com/wiki/User:Tonymec/syntaxcomplete.vim
 if exists("s:loaded_syntaxcomplete")
@@ -144,7 +128,8 @@ let g:qb_hotkey="<F4>"
 " http://blog.blueblack.net/item_160
 " http://d.hatena.ne.jp/secondlife/20080311/1205205348
 if executable('ack')
-  set grepprg=ack\ -a
+  "set grepprg=ack\ -a
+  set grepprg=ack
 endif
 
 " XMLの閉じタグを補完する {{{1
