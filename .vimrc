@@ -39,13 +39,6 @@ set backspace=indent,eol,start  " バックスペースで消せるように
 set formatoptions-=or   " コメント行で改行しても自動的にコメント記号をつけない
 set formatoptions+=mM   " 日本語行を連結する際に空白を挿入しない
 
-" 検索 {{{1
-set ignorecase  " 大文字小文字を区別しない
-set smartcase   " 大文字が含まれている場合は区別して検索する
-set wrapscan    " 最後まで検索したら先頭へ戻る
-set hlsearch    " 検索文字列をハイライト
-set incsearch   " インクリメンタルサーチ
-
 " 表示系 {{{1
 set scrolloff=5         " スクロール時の余白確保
 set modeline            " モードラインを有効にする
@@ -156,10 +149,6 @@ augroup SkeletonAu
   "autocmd BufNewFile *.pl   0r $HOME/.vim/templates/skel.pl
   "autocmd BufNewFile *.xml  0r $HOME/.vim/templates/skel.xml
 augroup END
-
-" 検索ハイライト消去 {{{1
-" Link: http://d.hatena.ne.jp/yuroyoro/20101104/1288879591
-nnoremap <ESC><ESC> :nohlsearch<CR><ESC>
 
 " クリップボードからの貼り付け時に自動インデントを無効にする {{{1
 " Link: http://ttssh2.sourceforge.jp/manual/ja/usage/tips/vim.html#Bracketed
