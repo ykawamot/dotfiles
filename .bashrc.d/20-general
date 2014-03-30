@@ -12,6 +12,10 @@ ulimit -c 0
 
 unset LANG MAIL
 
+# Disable Ctrl+S and Ctrl+Q
+stty stop  undef
+stty start undef
+
 export EDITOR=vim
 export PAGER=less
 export MANPAGER=less
