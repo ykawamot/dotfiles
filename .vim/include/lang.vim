@@ -1,5 +1,5 @@
 "
-"
+" Lang setting
 "
 
 " cpp
