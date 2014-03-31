@@ -3,6 +3,8 @@ augroup MyAutoCmd
   autocmd!
 augroup END
 
+let mapleader = ","
+
 filetype off
 filetype plugin indent off
 
@@ -24,10 +26,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 runtime! include/*.vim
 
 filetype plugin indent on
-
-" 全般系 {{{1
-"set mouse=a
-let mapleader = ","
 
 " ファイル {{{1
 set autoread    " 他で書き換えられたら自動で読み直す
@@ -189,4 +187,6 @@ nnoremap ,? ?
 nnoremap <silent> :ct :source $VIMRUNTIME/syntax/colortest.vim<CR>
 nnoremap <silent> :ht :source $VIMRUNTIME/syntax/hitest.vim<CR>
 
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
 NeoBundleCheck
