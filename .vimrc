@@ -111,17 +111,10 @@ augroup MyAutoCmd
   autocmd FileType vim    set dictionary+=$VIMRUNTIME/syntax/vim.vim
 augroup END
 
-" QuickBuf {{{1
-" Very small, clean but quick and POWERFUL buffer manager!
-" http://www.vim.org/scripts/script.php?script_id=1910
-" http://nanasi.jp/articles/vim/qbuf_vim.html
-let g:qb_hotkey="<F4>"
-
 " grep で ack を使う {{{1
 " http://blog.blueblack.net/item_160
 " http://d.hatena.ne.jp/secondlife/20080311/1205205348
 if executable('ack')
-  "set grepprg=ack\ -a
   set grepprg=ack
 endif
 
@@ -196,15 +189,4 @@ nnoremap ,? ?
 nnoremap <silent> :ct :source $VIMRUNTIME/syntax/colortest.vim<CR>
 nnoremap <silent> :ht :source $VIMRUNTIME/syntax/hitest.vim<CR>
 
-" 未取得の bundle があれば、起動時に取得
-" Link: http://qiita.com/td2sk/items/2299a5518f58ffbfc5cf
-if !empty(neobundle#get_not_installed_bundle_names())
-  echo 'Not installed bundles: '
-    \ string(neobundle#get_not_installed_bundle_names())
-  if confirm('Install bundles now?', "yes\nNo", 2) == 1
-    " vimrc を再度読み込み、インストールした Bundle を有効化
-    " vimrc は必ず再読み込み可能な形式で記述すること
-    NeoBundleInstall
-    source $MYVIMRC
-  endif
-end
+NeoBundleCheck
