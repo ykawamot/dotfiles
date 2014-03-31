@@ -1,0 +1,26 @@
+update
+upgrade
+
+install bash-completion
+install coreutils
+install curl
+install git
+install go
+install ldns
+install lua
+install markdown
+install mercurial
+install nkf
+install python
+install ruby
+install subversion
+install the_silver_searcher
+install tmux
+install vim --with-lua
+install w3m
+install wget
+
+tap phinze/cask
+install brew-cask
+cask install growlnotify
+#cask install google-chrome
