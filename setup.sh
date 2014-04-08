@@ -6,7 +6,7 @@ test -t 1 && {
 }
 
 # symlink for brew bash completion
-which brew > /dev/null && {
+which brew > /dev/null 2>&1 && {
   BREW_PREFIX=`brew --prefix`
   brew ls bash-completion > /dev/null && {
     test ! -e $BREW_PREFIX/etc/bash_completion.d/brew_bash_completion.sh && {
@@ -26,7 +26,9 @@ DOT_FILES=(
   .dir_colors
   .gitconfig
   .gitignore
+  .inputrc
   .rspec
+  .tmux.conf
   .vim
   .vimrc
 )
