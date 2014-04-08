@@ -20,6 +20,12 @@ if has('vim_starting')
 endif
 
 let g:neobundle_default_git_protocol = 'git'
+let g:neobundle#default_options = {
+\ '_' : {
+\   'focus' : 1000,
+\   'verbose' : 1,
+\   },
+\ }
 call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
