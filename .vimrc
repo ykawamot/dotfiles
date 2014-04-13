@@ -47,6 +47,7 @@ set formatoptions+=mM   " 日本語行を連結する際に空白を挿入しな
 set scrolloff=5         " スクロール時の余白確保
 set modeline            " モードラインを有効にする
 set modelines=5
+set vb t_vb=
 
 " その他設定 {{{1
 set nrformats-=octal            " 8進数を無効にする (C-a, C-xなどに影響する)
@@ -54,7 +55,7 @@ set fileformat=unix             " 改行コードの指定
 set fileformats=unix,dos,mac    " 改行コードの自動認識
 set wildmenu                    " 補完候補を表示する
 set wildmode=list:longest       " 全ての候補を羅列し、共通する最長の文字列まで補完する
-set wildignore=*.o,*.so         " 補完候補から除外するファイル
+set wildignore=*.o,*.so,*.swp,*.gz,*.tgz,*.zip,*.pyc  " 補完候補から除外するファイル
 set wildignore+=*/.hg/*,*/.svn/*,*/CVS/*
 "set wildignore+=*/.git/*       " If you ignore .git, vim-fugitive will not work.
 
