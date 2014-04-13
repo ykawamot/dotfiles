@@ -4,6 +4,7 @@ upgrade
 install bash-completion
 install coreutils
 install curl
+install fontforge
 install git
 install go
 install ldns
@@ -12,6 +13,7 @@ install markdown
 install mercurial
 install nkf
 install python
+install reattach-to-user-namespace
 install ruby
 install subversion
 install the_silver_searcher
@@ -22,5 +24,9 @@ install wget
 
 tap phinze/cask
 install brew-cask
+cask install iterm2
+cask install google-chrome
 cask install growlnotify
-#cask install google-chrome
+
+tap sanemat/font
+install ricty --vim-powerline
