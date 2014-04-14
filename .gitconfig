@@ -4,7 +4,7 @@
 [alias]
 	ci = commit
 	co = checkout
-	st = status
+	st = status -bs
 [core]
 	editor = vim
 	pager = cat
