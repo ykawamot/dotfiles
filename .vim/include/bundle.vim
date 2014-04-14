@@ -7,6 +7,7 @@ NeoBundle 'mhinz/vim-hugefile'
 NeoBundle 'othree/eregex.vim'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'tejr/vim-tmux'
 "NeoBundle 'thinca/vim-quickrun' => quickrun.vim
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'tpope/vim-fugitive'
