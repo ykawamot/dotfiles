@@ -6,7 +6,7 @@
 
 tmup () {
     echo -n "Updating to latest tmux environment...";
-    export IFS=",";
+    local IFS=",";
     for line in $(tmux showenv -t $(tmux display -p "#S") | tr "\n" ",");
     do
         if [[ $line == -* ]]; then
@@ -15,6 +15,5 @@ tmup () {
             export $line;
         fi;
     done;
-    unset IFS;
     echo "Done"
 }
