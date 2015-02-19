@@ -26,8 +26,9 @@ let g:neobundle#default_options = {
 \   'verbose' : 1,
 \   },
 \ }
-call neobundle#rc(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
+call neobundle#end()
 
 runtime! include/*.vim
 
