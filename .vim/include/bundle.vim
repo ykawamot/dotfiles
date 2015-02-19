@@ -18,6 +18,8 @@ NeoBundle 'vim-scripts/str2numchar.vim'
 NeoBundle 'vim-scripts/sudo.vim'
 "NeoBundle 'vim-scripts/QuickBuf'
 NeoBundle 't-cyrill/QuickBuf'
+NeoBundle 'osyo-manga/vim-over'
+cnoremap <silent> <Leader>o OverCommandLine<CR>
 
 NeoBundle 'Shougo/vimproc', {
 \ 'build' : {
