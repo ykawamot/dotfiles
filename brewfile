@@ -1,3 +1,6 @@
+#
+# Brewfile
+#
 update
 upgrade
 
@@ -12,21 +15,31 @@ install lua
 install markdown
 install mercurial
 install nkf
+install openssl
+install peco
 install python
 install reattach-to-user-namespace
 install ruby
 install subversion
 install the_silver_searcher
 install tmux
+install tree
 install vim --with-lua
 install w3m
 install wget
 
 tap phinze/cask
 install brew-cask
+cask install appcleaner
 cask install iterm2
 cask install google-chrome
+cask install google-japanese-ime
 cask install growlnotify
 
 tap sanemat/font
 install ricty --vim-powerline
+
+cleanup
+
+#readline
+#serf
