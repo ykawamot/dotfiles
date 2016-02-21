@@ -6,9 +6,9 @@ test -t 1 && {
 }
 
 # symlink for brew bash completion
-which brew > /dev/null 2>&1 && {
-  BREW_PREFIX=`brew --prefix`
-  brew ls bash-completion > /dev/null && {
+which brew &>/dev/null && {
+  BREW_PREFIX=$(brew --prefix)
+  brew ls bash-completion >/dev/null && {
     test ! -e $BREW_PREFIX/etc/bash_completion.d/brew_bash_completion.sh && {
       echo "ln -s $BREW_PREFIX/Library/Contributions/brew_bash_completion.sh \\"
       echo "      $BREW_PREFIX/etc/bash_completion.d/brew_bash_completion.sh"
