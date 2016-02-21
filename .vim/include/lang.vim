@@ -15,8 +15,3 @@ endfunction
 " javascript
 NeoBundleLazy 'pangloss/vim-javascript', {'autoload' : { 'filetypes' : [ 'javascript' ] } }
 
-" perl
-NeoBundleLazy 'vim-perl/vim-perl', { 'autoload' : { 'filetypes' : [ 'perl' ] } }
-NeoBundleLazy 'hotchpotch/perldoc-vim', { 'autoload' : { 'filetypes' : [ 'perl' ] } }
-NeoBundleLazy 'c9s/perlomni.vim', { 'autoload' : { 'filetypes' : [ 'perl' ] } }
-
