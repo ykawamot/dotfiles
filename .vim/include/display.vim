@@ -23,9 +23,10 @@ let python_highlight_all = 1
 
 " colorscheme
 NeoBundle 'tomasr/molokai'
-colorscheme molokai
 "let g:molokai_original = 1
 "let g:rehash256 = 1
+
+let g:apply_colorscheme = 'molokai'
 
 autocmd ColorScheme * highlight Normal ctermbg=none
   \ " molokai.vimの背景色を消す
