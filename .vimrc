@@ -14,12 +14,12 @@ if has('vim_starting')
   " NeoBundleが未取得なら、git clone を呼び出す
   if !isdirectory(expand("~/.vim/bundle/neobundle.vim/"))
     echo "Install neobundle..."
-    call system("git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim")
+    call system("git clone https://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim")
   endif
   set runtimepath+=~/.vim/bundle/neobundle.vim
 endif
 
-let g:neobundle_default_git_protocol = 'git'
+let g:neobundle_default_git_protocol = 'https'
 let g:neobundle#default_options = {
 \ '_' : {
 \   'focus' : 1000,
@@ -28,9 +28,28 @@ let g:neobundle#default_options = {
 \ }
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
+runtime! include/*.vim
 call neobundle#end()
 
-runtime! include/*.vim
+" vim-plug
+" Link: http://qiita.com/jiminko/items/f4b337ab41db751388f7
+if has('vim_starting')
+  set runtimepath+=~/.vim/plugged/vim-plug
+  if !isdirectory(expand('~/.vim/plugged/vim-plug'))
+    echo 'install vim-plug...'
+    call system('mkdir -p ~/.vim/plugged/vim-plug')
+    call system('git clone https://github.com/junegunn/vim-plug.git ~/.vim/plugged/vim-plug/autoload')
+  endif
+endif
+
+call plug#begin('~/.vim/plugged')
+  Plug 'junegunn/vim-plug', {
+  \ 'dir' : '~/.vim/plugged/vim-plug/autoload',
+  \ }
+runtime! plugged-in/*.vim
+call plug#end()
+
+execute printf('%s %s', 'colorscheme', g:apply_colorscheme)
 
 filetype plugin indent on
 
