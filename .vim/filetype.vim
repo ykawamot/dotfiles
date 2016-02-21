@@ -4,11 +4,12 @@ if exists("did_load_filetypes")
 endif
 augroup FileTypeDetect
   autocmd!
-  autocmd BufRead,BufNewFile *.tt  setfiletype html
-  autocmd BufRead,BufNewFile *.sql setfiletype mysql
-  autocmd BufRead,BufNewFile *.cgi setfiletype perl
-  autocmd BufRead,BufNewFile *.t   setfiletype perl
-  autocmd BufRead,BufNewFile *.inc setfiletype php
+  autocmd BufNewFile,BufRead *.sql  setfiletype mysql
+  autocmd BufNewFile,BufRead *.cgi  setfiletype perl
+  autocmd BufNewFile,BufRead *.psgi setfiletype perl
+  autocmd BufNewFile,BufRead *.t    setfiletype perl
+  autocmd BufNewFile,BufRead *.inc  setfiletype php
+  autocmd BufNewFile,BufRead *.tt   setfiletype tt2html
 
-  autocmd BufRead,BufNewFile Gemfile setfiletype ruby
+  autocmd BufNewFile,BufRead Gemfile setfiletype ruby
 augroup END
