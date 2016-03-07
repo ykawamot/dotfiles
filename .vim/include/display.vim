@@ -33,20 +33,4 @@ autocmd ColorScheme * highlight Normal ctermbg=none
   \ " See: http://fixture.jp/blog/2012/08/patch-to-disable-molokai-bgcolor/
 autocmd ColorScheme * highlight SpecialKey cterm=underline
 
-" 全角スペースを表示
-" Link: http://sites.google.com/site/fudist/Home/vim-nihongo-ban/vim-color
-if has('syntax')
-  function! ZenkakuSpace()
-    " ZenkakuSpaceをカラーファイルで設定するなら次の行は削除
-    highlight ZenkakuSpace cterm=underline ctermfg=lightblue
-    " 全角スペースを明示的に表示する。
-    silent! match ZenkakuSpace /　/
-  endfunction
-
-  augroup ZenkakuSpace
-    autocmd!
-    autocmd VimEnter,BufEnter * call ZenkakuSpace()
-  augroup END
-endif
-
 syntax on
