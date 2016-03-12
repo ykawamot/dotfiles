@@ -2,6 +2,7 @@
 	name = Yuji Kawamoto
 	email = yukawamoto@gmail.com
 [alias]
+	alias = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
 	ci = commit
 	co = checkout
 	st = status -bs
