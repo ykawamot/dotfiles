@@ -1,3 +1,0 @@
-export CVS_RSH=ssh
-export CVSEDITOR=$EDITOR
-#export CVSROOT=
