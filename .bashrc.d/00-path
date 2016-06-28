@@ -18,16 +18,6 @@ if [ -d /usr/X11 ] ; then
   pathappend /usr/X11/share/man MANPATH
 fi
 
-# $ brew install coreutils
-if [ -n "$(which brew 2> /dev/null)" ] ; then
-  GNU_PREFIX=$(brew --prefix coreutils 2> /dev/null)
-  if [ -d "$GNU_PREFIX" ] ; then
-    pathprepend $GNU_PREFIX/libexec/gnubin
-    pathprepend $GNU_PREFIX/libexec/gnuman MANPATH
-  fi
-  unset GNU_PREFIX
-fi
-
 if [ -d ~/bin ] ; then
   pathappend ~/bin
 fi
