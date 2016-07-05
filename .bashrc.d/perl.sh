@@ -1,11 +1,13 @@
-# Begin ~/.bashrc.d/20-perl
+#
+# .bashrc.d/perl.sh
+#
 
 export PERL5OPT="-MCarp=verbose"
 
 # perlbrew
-test -d $HOME/perl5/perlbrew && {
-  . $HOME/perl5/perlbrew/etc/bashrc
-  . $HOME/perl5/perlbrew/etc/perlbrew-completion.bash
+# $ \curl -L https://install.perlbrew.pl | bash
+test -d "$HOME/perl5/perlbrew" && {
+  source "$HOME/perl5/perlbrew/etc/bashrc"
+  source "$HOME/perl5/perlbrew/etc/perlbrew-completion.bash"
 }
 
-# End ~/.bashrc.d/20-perl
