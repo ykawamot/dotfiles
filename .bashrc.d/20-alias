@@ -1,4 +1,7 @@
-# Begin ~/.bashrc.d/20-alias
+#!/bin/sh
+#
+# .bashrc.d/20-alias
+#
 
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -25,4 +28,9 @@ case $OSNAME in
     ;;
 esac
 
-# End ~/.bashrc.d/20-alias
+which vim &>/dev/null && {
+  VIMRUNTIME=$(vim -esbnN -V1 -i NONE -u NONE --cmd 'echo $VIMRUNTIME|q!' 2>&1)
+  test -f $VIMRUNTIME/macros/less.sh && {
+    alias less=$VIMRUNTIME/macros/less.sh
+  }
+}
