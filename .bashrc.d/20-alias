@@ -29,7 +29,7 @@ case $OSNAME in
 esac
 
 which vim &>/dev/null && {
-  VIMRUNTIME=$(vim -esbnN -V1 -i NONE -u NONE --cmd 'echo $VIMRUNTIME|q!' 2>&1)
+  VIMRUNTIME=$(vim -es +'.!echo $VIMRUNTIME' +%p +q!)
   test -f $VIMRUNTIME/macros/less.sh && {
     alias less=$VIMRUNTIME/macros/less.sh
   }
