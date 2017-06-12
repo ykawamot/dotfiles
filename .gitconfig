@@ -1,10 +1,10 @@
-[user]
-	name = Yuji Kawamoto
-	email = yukawamoto@gmail.com
+[include]
+	path = .gitconfig.local
 [alias]
 	alias = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
 	ci = commit
 	co = checkout
+	last = show -1 HEAD --stat -p
 	pr = pull-request
 	see = browse
 	st = status -bs
@@ -14,4 +14,4 @@
 	excludesfile = ~/.gitignore
 [color]
 	diff = auto
-	ui = true
+	ui = auto
