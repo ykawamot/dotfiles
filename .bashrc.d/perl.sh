@@ -9,5 +9,7 @@ export PERL5OPT="-MCarp=verbose"
 test -d "$HOME/perl5/perlbrew" && {
   source "$HOME/perl5/perlbrew/etc/bashrc"
   source "$HOME/perl5/perlbrew/etc/perlbrew-completion.bash"
+
+  eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"
 }
 
