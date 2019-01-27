@@ -27,7 +27,11 @@ LIBS=(
   apr
   apr-util
   curl
+  icu4c
+  libxml2
   llvm
+  php@7.1
+  sqlite
   )
 
 for lib in "${LIBS[@]}" ; do
