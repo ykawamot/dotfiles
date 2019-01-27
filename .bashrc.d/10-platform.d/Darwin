@@ -16,6 +16,7 @@ fi
 if [ -f /usr/local/bin/brew ] ; then
   pathprepend /usr/local/sbin PATH
   pathprepend /usr/local/bin  PATH
+  alias brew="PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin brew"
 fi
 
 # End ~/.bashrc.d/10-platform.d/Darwin
